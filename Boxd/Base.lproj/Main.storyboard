@@ -37,25 +37,20 @@
                                     <constraint firstAttribute="height" constant="49" id="yQ5-96-UY5"/>
                                 </constraints>
                                 <items>
-                                    <barButtonItem style="plain" id="KN2-Ul-xAM">
-                                        <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="fbP-l6-h5j">
-                                            <rect key="frame" x="20" y="12" width="194" height="30"/>
-                                            <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
-                                            <state key="normal" title="Resize"/>
-                                            <connections>
-                                                <action selector="resizeImage:" destination="BYZ-38-t0r" eventType="touchUpInside" id="6A7-cK-MyS"/>
-                                            </connections>
-                                        </button>
+                                    <barButtonItem title="Resize" id="EV0-0s-QmY" userLabel="Resize">
+                                        <connections>
+                                            <action selector="resizeImage:" destination="BYZ-38-t0r" id="YvJ-go-Fdi"/>
+                                        </connections>
                                     </barButtonItem>
-                                    <barButtonItem style="plain" id="7FE-wK-b9C">
-                                        <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="qgu-Bi-7x1">
-                                            <rect key="frame" x="217" y="12" width="177" height="30"/>
-                                            <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
-                                            <state key="normal" title="Photos"/>
-                                            <connections>
-                                                <action selector="showImagePicker:" destination="BYZ-38-t0r" eventType="touchUpInside" id="ehx-H7-iZx"/>
-                                            </connections>
-                                        </button>
+                                    <barButtonItem title="Photos" id="t6S-Zg-Lcc">
+                                        <connections>
+                                            <action selector="showImagePicker:" destination="BYZ-38-t0r" id="PoL-yC-kFg"/>
+                                        </connections>
+                                    </barButtonItem>
+                                    <barButtonItem title="Save" id="BZO-M1-bkU" userLabel="Size">
+                                        <connections>
+                                            <action selector="Save:" destination="BYZ-38-t0r" id="pBB-3C-nfC"/>
+                                        </connections>
                                     </barButtonItem>
                                 </items>
                             </toolbar>
@@ -68,6 +63,7 @@
                             <constraint firstItem="e9J-04-VzF" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="PJG-9d-b5Q"/>
                             <constraint firstItem="RwV-AL-drc" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="USN-ul-dLH"/>
                             <constraint firstItem="RwV-AL-drc" firstAttribute="bottom" secondItem="6Tk-OE-BBY" secondAttribute="bottom" id="VbF-CO-Uew"/>
+                            <constraint firstItem="RwV-AL-drc" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="fhC-Kn-vQW"/>
                             <constraint firstItem="e9J-04-VzF" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="rgY-zN-8V7"/>
                             <constraint firstItem="e9J-04-VzF" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="yx1-NH-sLv"/>
                         </constraints>

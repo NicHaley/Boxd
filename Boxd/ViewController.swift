@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Photos
 
 class ViewController: UIViewController {
     
@@ -19,8 +20,8 @@ class ViewController: UIViewController {
         self.imagePicker = ImagePicker(presentationController: self, delegate: self)
     }
     
-    @IBAction func showImagePicker(_ sender: UIButton) {
-        self.imagePicker.present(from: sender)
+    @IBAction func showImagePicker(_ sender: UIBarButtonItem) {
+        self.imagePicker.present(from: self.view)
     }
     
     @IBAction func resizeImage(_ sender: Any) {
@@ -29,6 +30,28 @@ class ViewController: UIViewController {
         }
     }
     
+    @IBAction func Save(_ sender: Any) {
+        if let unwrappedImage = self.imageView.image {
+            PHPhotoLibrary.shared().performChanges({
+                PHAssetChangeRequest.creationRequestForAsset(from: unwrappedImage)
+            }, completionHandler: { success, error in
+                if success {
+                    // Saved successfully!
+                    UIImageWriteToSavedPhotosAlbum(unwrappedImage, nil, nil, nil);
+                }
+                else if let error = error {
+                    // Save photo failed with error
+                }
+                else {
+                    // Save photo failed with no error
+                }
+            })
+        }
+    }
+    
+    // Need to output image without resoltion loss. Look at:
+    // https://stackoverflow.com/questions/52070189/keep-same-image-quality-after-converting-in-swift
+    // https://developer.apple.com/documentation/uikit/uigraphicsimagerenderer
     func drawImage(image: UIImage) -> UIImage {
         let screenWidth = self.view.frame.size.width;
         let canvasSize = CGSize(width: screenWidth, height: screenWidth)

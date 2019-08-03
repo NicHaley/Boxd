@@ -72,12 +72,6 @@ open class ImagePicker: NSObject {
         
         self.delegate?.didSelect(image: image)
     }
-    
-    // This should not be used to resize, but instead scale
-    // Needs a re-write: https://schiavo.me/2019/pinch-to-zoom-image-view/
-//    public  func resizeImage(image: UIImage, targetSize: CGSize) -> UIImage {
-//
-//    }
 }
 
 extension ImagePicker: UIImagePickerControllerDelegate {
