@@ -1,7 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13122.16" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+    <device id="retina6_1" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13104.12"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -9,16 +13,73 @@
         <!--View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="Boxd" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="e9J-04-VzF">
+                                <rect key="frame" x="0.0" y="44" width="414" height="769"/>
+                                <subviews>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Xi7-F1-Gta">
+                                        <rect key="frame" x="39" y="124" width="337" height="521"/>
+                                    </imageView>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstItem="Xi7-F1-Gta" firstAttribute="centerY" secondItem="e9J-04-VzF" secondAttribute="centerY" id="Hiy-bp-FDg"/>
+                                    <constraint firstItem="Xi7-F1-Gta" firstAttribute="centerX" secondItem="e9J-04-VzF" secondAttribute="centerX" id="iY8-g2-lzl"/>
+                                </constraints>
+                            </view>
+                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="RwV-AL-drc">
+                                <rect key="frame" x="0.0" y="813" width="414" height="49"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="49" id="yQ5-96-UY5"/>
+                                </constraints>
+                                <items>
+                                    <barButtonItem style="plain" id="KN2-Ul-xAM">
+                                        <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="fbP-l6-h5j">
+                                            <rect key="frame" x="20" y="12" width="194" height="30"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
+                                            <state key="normal" title="Resize"/>
+                                            <connections>
+                                                <action selector="resizeImage:" destination="BYZ-38-t0r" eventType="touchUpInside" id="6A7-cK-MyS"/>
+                                            </connections>
+                                        </button>
+                                    </barButtonItem>
+                                    <barButtonItem style="plain" id="7FE-wK-b9C">
+                                        <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="qgu-Bi-7x1">
+                                            <rect key="frame" x="217" y="12" width="177" height="30"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
+                                            <state key="normal" title="Photos"/>
+                                            <connections>
+                                                <action selector="showImagePicker:" destination="BYZ-38-t0r" eventType="touchUpInside" id="ehx-H7-iZx"/>
+                                            </connections>
+                                        </button>
+                                    </barButtonItem>
+                                </items>
+                            </toolbar>
+                        </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="RwV-AL-drc" firstAttribute="top" secondItem="e9J-04-VzF" secondAttribute="bottom" id="22P-vd-QYp"/>
+                            <constraint firstItem="RwV-AL-drc" firstAttribute="bottom" secondItem="6Tk-OE-BBY" secondAttribute="bottom" id="6VL-Wd-RhI"/>
+                            <constraint firstItem="RwV-AL-drc" firstAttribute="trailing" secondItem="8bC-Xf-vdC" secondAttribute="trailing" id="Duk-4a-txB"/>
+                            <constraint firstItem="e9J-04-VzF" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="PJG-9d-b5Q"/>
+                            <constraint firstItem="RwV-AL-drc" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="USN-ul-dLH"/>
+                            <constraint firstItem="RwV-AL-drc" firstAttribute="bottom" secondItem="6Tk-OE-BBY" secondAttribute="bottom" id="VbF-CO-Uew"/>
+                            <constraint firstItem="e9J-04-VzF" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="rgY-zN-8V7"/>
+                            <constraint firstItem="e9J-04-VzF" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="yx1-NH-sLv"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
+                    <connections>
+                        <outlet property="imageView" destination="Xi7-F1-Gta" id="IVs-kM-m7G"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="47.826086956521742" y="20.758928571428569"/>
         </scene>
     </scenes>
 </document>
