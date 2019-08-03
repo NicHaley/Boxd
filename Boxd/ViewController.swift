@@ -30,14 +30,33 @@ class ViewController: UIViewController {
     }
     
     func drawImage(image: UIImage) -> UIImage {
-        let canvasSize = CGSize(width: 400, height: 400)
-        let rect = CGRect(x: 0, y: 0, width: 400, height: 400)
+        let screenWidth = self.view.frame.size.width;
+        let canvasSize = CGSize(width: screenWidth, height: screenWidth)
+        let rect = CGRect(x: 0, y: 0, width: canvasSize.width, height: canvasSize.height)
         let color = UIColor(white: 0.5, alpha: 1)
+        
+        let imageHeight = image.size.height
+        let imageWidth = image.size.width
+        
+        let imageHeightWidthRatio = imageHeight / imageWidth
+        var imageRect: CGRect
+        
+        if imageHeightWidthRatio > 1 {
+            let newWidth = canvasSize.width / imageHeightWidthRatio
+            imageRect = CGRect(x: (canvasSize.width - newWidth) / 2, y: 0, width: newWidth, height: canvasSize.height)
+        } else if imageHeightWidthRatio < 1 {
+            let newHeight = canvasSize.height * imageHeightWidthRatio
+            imageRect = CGRect(x: 0, y: (canvasSize.height - newHeight) / 2, width: canvasSize.width, height: newHeight)
+        } else {
+            imageRect = CGRect(x: 0, y: 0, width: canvasSize.width, height: canvasSize.height)
+        }
+        
+        print(imageHeight, imageWidth, imageRect)
         
         UIGraphicsBeginImageContextWithOptions(canvasSize, false, 1.0)
         color.setFill()
         UIRectFill(rect)
-        image.draw(in: CGRect(x: 50, y: 0, width: 300, height: canvasSize.height))
+        image.draw(in: imageRect)
         let renderImage = UIGraphicsGetImageFromCurrentImageContext()
         UIGraphicsEndImageContext()
         
